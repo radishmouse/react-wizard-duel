@@ -98,7 +98,7 @@ OK, that fixed it.
 We call useEffect and tell it that we want to run if props have changed.
 
 Back to the Duel...
-It is `event.target.value` that I can use on the `onChagne`.
+It is `event.target.value` that I can use on the `onChange`.
 
 OK, on PlayerChooser, I need a way to signal back to the Duel that I've chosen a player.
 The form needs an onSubmit, but only the select knows which player got chosen. In order for these two to talk, I need some state.
