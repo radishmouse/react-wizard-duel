@@ -3,7 +3,7 @@
 
 Demos forms and `useState()`.
 
-One component needs `useEffect()` to update state when new props are passed.
+Two components need `useEffect()` to update state when new props are passed.
 
 Creates unique ID with the uuid npm package: `yarn add uuid`
 
@@ -130,3 +130,6 @@ Adding a feature: don't let a wizard battle themselves.
 If fitler out player1 if we're selecting player2.
 
 Improvement: my WizardForm could probably just rely on `useEffect()` for setting state from props. I probably don't need the whole `initialData` thing.
+
+Implements a Winner component to show after a random number of turns.
+Also needed a reset button (in addition to resetting if we got a fresh set of players). Reset needs to be called from `useEffect()` if we get new players.
