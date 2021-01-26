@@ -3,6 +3,8 @@
 
 Demos forms and `useState()`.
 
+One component needs `useEffect()` to update state when new props are passed.
+
 Creates unique ID with the uuid npm package: `yarn add uuid`
 
 ---
@@ -126,3 +128,5 @@ Now, a new bug: can't create a wizard because of useEffect trying to get the inf
 
 Adding a feature: don't let a wizard battle themselves.
 If fitler out player1 if we're selecting player2.
+
+Improvement: my WizardForm could probably just rely on `useEffect()` for setting state from props. I probably don't need the whole `initialData` thing.
