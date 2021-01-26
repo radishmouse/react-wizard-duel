@@ -20,6 +20,11 @@ code {
     monospace;
 }
 
+nav {
+  display: flex;
+  justify-content: space-around;
+}
+
 .wizard-form {
   
 }

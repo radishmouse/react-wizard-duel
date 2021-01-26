@@ -1,5 +1,12 @@
 import wizardsArray from './wizards';
 
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from 'react-router-dom';
+
 import Home from './components/Home';
 import Duel from './components/Duel';
 import WizardList from './components/WizardList';
@@ -57,33 +64,42 @@ function App() {
   }
   
   return (
-    <div className="App">
+    <Router>
       <h1>{page}</h1>
       <nav>
-        <ul>
-          <li onClick={() => setPage('home')}>Home</li>
-          <li onClick={() => setPage('create')}>Create</li>
 
-          <li onClick={() => setPage('duel')}>Duel!</li>
-        </ul>
-    </nav>
+        <Link to="/">Home</Link>
+        <Link to="/create">Create</Link>
+        <Link to="/duel">Duel!</Link>
+
+      </nav>
       { wizards.length > 0 && (
         <WizardList
           wizards={wizards}
           chooseWizard={chooseWizard}
         />
       ) }
-      { page === 'home' && <Home /> }
-      { page === 'create' && <WizardForm saveWizard={saveWizard} /> }
-      { page === 'edit' && id !== '' && (
-        <WizardForm
-          saveWizard={saveWizard}
-          wizard={wizards.find(w => w.id === id)}
-        />
-      )}
-      { page === 'duel' && <Duel wizards={wizards}/> }
-      
-    </div>
+      <Switch>
+        <Route path="/" exact>
+          <Home />
+        </Route>
+
+        <Route path="/create">
+          <WizardForm saveWizard={saveWizard} />           
+        </Route>
+
+        <Route path="/edit">
+          <WizardForm
+            saveWizard={saveWizard}
+            wizard={wizards.find(w => w.id === id)}
+          />
+        </Route>
+
+        <Route path="/duel">
+          <Duel wizards={wizards} />    
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 

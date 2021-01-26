@@ -8,7 +8,7 @@ function Duel(props) {
   const [player1, setPlayer1] = useState(null);
   const [player2, setPlayer2] = useState(null);
   const [currentPlayerNumber, setCurrentPlayerNumber] = useState(1);
-  const [ready, setReady] = useState(false);
+  const [ready, setReady] = useState(false);  
   
   const chooseWizard = (id) => {
     // id is a String and w.id is a Number.
